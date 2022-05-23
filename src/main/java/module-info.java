@@ -10,4 +10,6 @@ module ahsan.quizapplication {
 
     opens ahsan.quizapplication to javafx.fxml;
     exports ahsan.quizapplication;
+    exports ahsan.quizapplication.Controllers;
+    opens ahsan.quizapplication.Controllers to javafx.fxml;
 }

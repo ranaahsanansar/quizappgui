@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
-package ahsan.quizapplication;
+
+package ahsan.quizapplication.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +17,7 @@ import javafx.scene.control.TextField;
  */
 public class HelloController implements Initializable {
 
-    private Label label;
+
     @FXML
     private TextField adminEmail;
     @FXML
@@ -34,10 +31,7 @@ public class HelloController implements Initializable {
     @FXML
     private Button stuLoginBtn;
 
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,7 +42,11 @@ public class HelloController implements Initializable {
     private void adminLogin(ActionEvent event) {
         String email = adminEmail.getText();
         String password = adminPassword.getText();
-        System.out.println("Email: " + email + "Password: " + password);
+        if(email.trim().equalsIgnoreCase("root") && password.trim().equalsIgnoreCase("123456")){
+            System.out.println("Correct");
+        }else{
+            System.out.println("Incorret");
+        }
     }
 
     @FXML

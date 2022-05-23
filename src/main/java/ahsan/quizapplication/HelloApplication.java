@@ -23,6 +23,7 @@ public class HelloApplication extends Application {
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
+        stage1.setTitle("Login");
         stage1.show();
 
     }

@@ -50,7 +50,7 @@
                                           <Font size="17.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="quizTitleOKbtn" mnemonicParsing="false" onAction="#setQuizTitle" style="-fx-background-color: rgba(128, 128, 128, 0.633);" text="Ok">
+                                    <Button fx:id="quizTitleOKbtn" mnemonicParsing="false" style="-fx-background-color: rgba(128, 128, 128, 0.633);" text="Ok">
                                        <HBox.margin>
                                           <Insets left="5.0" />
                                        </HBox.margin>

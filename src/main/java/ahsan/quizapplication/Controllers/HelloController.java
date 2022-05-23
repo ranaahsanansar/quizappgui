@@ -56,9 +56,11 @@ public class HelloController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminHomeView.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) adminLoginBtn.getScene().getWindow(); // Jo Window Open hogi usi ka Stage mill jaye ga
+                stage.setTitle("Admin Panel");
                 stage.setScene(scene);
 //                stage.setFullScreen(true);
                 stage.setMaximized(true);
+
             }catch (IOException e){
                 System.out.println(e.getMessage());
 

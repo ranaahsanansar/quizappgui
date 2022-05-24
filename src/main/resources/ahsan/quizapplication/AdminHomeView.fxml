@@ -140,7 +140,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="submitQuiz" mnemonicParsing="false" style="-fx-background-color: rgba(65, 200, 65, 0.864);" text="Submit Quiz">
+                                    <Button fx:id="submitQuiz" mnemonicParsing="false" style="-fx-background-color: rgba(65, 200, 65, 0.864);" onAction="#submitQuizAction"  text="Submit Quiz">
                                        <HBox.margin>
                                           <Insets left="20.0" />
                                        </HBox.margin>

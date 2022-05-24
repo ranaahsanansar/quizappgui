@@ -1,6 +1,7 @@
 package ahsan.quizapplication.Models;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -35,7 +36,7 @@ public class QuizModel {
 
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -61,6 +62,29 @@ public class QuizModel {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    public void insertQuiz(){
+        Connection conn ;
+        PreparedStatement preparedStatement;
+
+
+        try{
+
+            String querryRaw = "INSERT INTO `%s` ( `%s`) VALUES ( \"%s\")";
+            String querry = String.format(querryRaw , MetaData.TABLE_NAME, MetaData.QUIZ_TITLE , this.title);
+
+            conn = CrateConnection.getConnection();
+            preparedStatement = conn.prepareStatement(querry);
+//            preparedStatement.setString(1 , title);
+            System.out.println("Query: " + querry);
+            preparedStatement.executeUpdate();
+            System.out.println("Inserted");
+        }catch (SQLException e){
+            System.out.println("SQL : " + e.getMessage());
+        }catch (Exception e){
+            System.out.println("Error " + e.getMessage());
+        }
     }
 
 }

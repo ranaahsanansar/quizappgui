@@ -50,7 +50,7 @@
                                           <Font size="17.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="quizTitleOKbtn" mnemonicParsing="false" style="-fx-background-color: rgba(128, 128, 128, 0.633);" text="Ok">
+                                    <Button fx:id="quizTitleOKbtn" mnemonicParsing="false" onAction="#quizTitleAction" style="-fx-background-color: rgba(128, 128, 128, 0.633);" text="Ok">
                                        <HBox.margin>
                                           <Insets left="5.0" />
                                        </HBox.margin>
@@ -135,7 +135,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="104.0" prefWidth="730.0">
                                  <children>
-                                    <Button fx:id="addNewQuestion" mnemonicParsing="false" style="-fx-background-color: #02B290;" text="Save and add New Question" textFill="#060707">
+                                    <Button fx:id="addNewQuestion" mnemonicParsing="false" style="-fx-background-color: #02B290;" onAction="#addNewQuestionAction" text="Save and add New Question" textFill="#060707">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>

@@ -2,6 +2,7 @@ package ahsan.quizapplication.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -59,7 +60,12 @@ public class AdminHomeController  implements Initializable {
     @FXML
     private Button submitQuiz;
 
+
     private ToggleGroup radioButtons;
+    private String title = null;
+
+    private HashMap<String , String[]> questionsRecord = new HashMap<>();
+
 
     private void radioButtons(){
         radioButtons = new ToggleGroup();
@@ -73,71 +79,90 @@ public class AdminHomeController  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         radioButtons();
 //        Saving Title Of the QuizModel
-        quizTitleOKbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Handel");
-                String title = quizTitle.getText();
-                if (title.trim().isEmpty()){
-                    Notifications notifications = Notifications.create();
-                    notifications.text("Please Enter a Valid Title");
-                    notifications.title("Invalid");
-
-                    notifications.position(Pos.TOP_RIGHT);
-                    notifications.hideAfter(Duration.millis(2000));
-
-                    notifications.showError();
-//                    System.out.println("Empty Title");
-                } else if (!title.isEmpty()) {
-                    Notifications notification = Notifications.create();
-                    notification.text("You can not change it")
-                            .title("Field Locked")
-                            .position(Pos.TOP_LEFT)
-                            .hideAfter(Duration.seconds(2));
-                    notification.showWarning();
-                } else {
-                    Notifications notification = Notifications.create();
-                    notification.text("Title Saved now you can not change it")
-                            .title("Saved")
-                            .position(Pos.TOP_LEFT)
-                            .hideAfter(Duration.seconds(2));
-                    notification.show();
-                    quizTitle.setEditable(false);
-                }
-            }
-        });
-
-        addNewQuestion.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                String ques = question.getText();
-                String op1 = opt1.getText();
-                String op2 = opt2.getText();
-                String op3 = opt3.getText();
-                String op4 = opt4.getText();
-                Toggle selectedRadioOp = radioButtons.getSelectedToggle();
-
-                if (ques.trim().isEmpty()
-                        || op1.trim().isEmpty()
-                        || op2.trim().isEmpty()
-                        || op3.trim().isEmpty()
-                        || op4.trim().isEmpty()){
-
-                    Notifications notifications = Notifications.create().title("Question").text("All fields are required").position(Pos.TOP_RIGHT);
-                    notifications.showError();
-                }else if (selectedRadioOp == null){
-                    Notifications notifications = Notifications.create().title("Option Error").text("Please select right answer").position(Pos.TOP_RIGHT);
-                    notifications.showError();
-                }else {
-
-                }
-            }
-        });
 
 
     } //end of Initializ
 
+    public void quizTitleAction(ActionEvent actionEvent) {
+        System.out.println("Handel");
+        String title = quizTitle.getText();
+        if (title.trim().isEmpty()){
+            Notifications notifications = Notifications.create();
+            notifications.text("Please Enter a Valid Title");
+            notifications.title("Invalid");
 
+            notifications.position(Pos.TOP_RIGHT);
+            notifications.hideAfter(Duration.millis(2000));
+
+            notifications.showError();
+//                    System.out.println("Empty Title");
+        } else if (!title.isEmpty()) {
+            Notifications notification = Notifications.create();
+            notification.text("Title Saved now you can not change it")
+                    .title("Saved")
+                    .position(Pos.TOP_LEFT)
+                    .hideAfter(Duration.seconds(2));
+            notification.show();
+            quizTitle.setEditable(false);
+            this.title = title;
+//            System.out.println("Title : " + this.title);
+            quizTitleOKbtn.setVisible(false);
+
+        }
+    }
+
+    public void addNewQuestionAction(ActionEvent actionEvent) {
+        String ques = question.getText();
+        String op1 = opt1.getText();
+        String op2 = opt2.getText();
+        String op3 = opt3.getText();
+        String op4 = opt4.getText();
+        Toggle selectedRadioOp = radioButtons.getSelectedToggle();
+
+        if (ques.trim().isEmpty()
+                || op1.trim().isEmpty()
+                || op2.trim().isEmpty()
+                || op3.trim().isEmpty()
+                || op4.trim().isEmpty()){
+
+            Notifications notifications = Notifications.create().title("Question").text("All fields are required").position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }else if (selectedRadioOp == null){
+            Notifications notifications = Notifications.create().title("Option Error").text("Please select right answer").position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }else if (this.title.trim().isEmpty()) {
+            Notifications notifications = Notifications.create().title("Title Empty").text("Please set a title").position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }else {
+
+            try {
+                String[] data = new String[5];
+
+
+                data[0] = op1;
+                data[1] = op2;
+                data[2] = op3;
+                data[3] = op4;
+                if(selectedRadioOp == radioOpt1){
+                    data[4] = op1;
+                } else if (selectedRadioOp == radioOpt2) {
+                    data[4] = op2;
+                }else if (selectedRadioOp == radioOpt3) {
+                    data[4] = op3;
+                }else if (selectedRadioOp == radioOpt4) {
+                    data[4] = op4;
+                }
+
+                questionsRecord.put(question.getText().trim() , data);
+
+                System.out.println("Question" + questionsRecord.keySet());
+
+            }catch (IndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+            }
+
+        }
+    }
 
 
 //    ------------------

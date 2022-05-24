@@ -10,6 +10,12 @@ public class QuizModel {
     private Integer quizId;
     private String title;
 
+    public static class MetaData{
+        public static String TABLE_NAME = "quizzes";
+        public static String QUIZ_ID = "id";
+        public static String QUIZ_TITLE = "title";
+    }
+
     public QuizModel(){
 
     }
@@ -41,7 +47,9 @@ public class QuizModel {
         Connection conn ;
         Statement statement;
 
-        String query = "CREATE TABLE IF NOT EXISTS `quizzes` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`))";
+        String queryRaw = "CREATE TABLE IF NOT EXISTS `%s` ( `%s` INT(50) NOT NULL AUTO_INCREMENT , `%s` VARCHAR(50) NOT NULL , PRIMARY KEY (`%s`))";
+        String query = String.format(queryRaw , MetaData.TABLE_NAME , MetaData.QUIZ_ID , MetaData.QUIZ_TITLE , MetaData.QUIZ_ID );
+//        System.out.println("Quiz Model: " + query);
         try {
             conn = CrateConnection.getConnection();
             statement = conn.createStatement();

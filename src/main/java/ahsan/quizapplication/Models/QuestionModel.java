@@ -16,11 +16,13 @@ public class QuestionModel {
 
     public static class MetaData {
         public static final String TABLE_NAME = "questions";
-        public static final String OPT1 = "";
-        public static final String OPT2 = "";
-        public static final String OPT3 = "";
-        public static final String OPT4 = "";
-        public static final String ANSWER = "";
+        public static final String QUESTION = "question";
+        public static final String OPT1 = "opt1";
+        public static final String OPT2 = "opt2";
+        public static final String OPT3 = "opt3";
+        public static final String OPT4 = "opt4";
+        public static final String ANSWER = "answer";
+        public static final String QUIZ_ID = "quiz_id";
 
     }
 
@@ -107,7 +109,11 @@ public class QuestionModel {
         Connection conn ;
         Statement statement;
 
-        String query = "CREATE TABLE IF NOT EXISTS `questions` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `question` VARCHAR (1000) , `opt1` VARCHAR (500), `opt2` VARCHAR (500), `opt3` VARCHAR (500), `opt4` VARCHAR (500), `answer` VARCHAR (500), quiz_id INTEGER, FOREIGN KEY (quiz_id) REFERENCES quizzes(id) , PRIMARY KEY (`id`)) ;";
+        String queryRaw = "CREATE TABLE IF NOT EXISTS `%s` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `%s` VARCHAR (1000) , `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), %s INTEGER, FOREIGN KEY (%s) REFERENCES %s(%s) , PRIMARY KEY (`id`))";
+
+        String query = String.format(queryRaw , MetaData.TABLE_NAME , MetaData.QUESTION , MetaData.OPT1 , MetaData.OPT2 , MetaData.OPT3 , MetaData.OPT4 , MetaData.ANSWER , MetaData.QUIZ_ID , MetaData.QUIZ_ID , QuizModel.MetaData.TABLE_NAME , QuizModel.MetaData.QUIZ_ID );
+
+//        System.out.println(query);
         try {
             conn = CrateConnection.getConnection();
             statement = conn.createStatement();
@@ -120,5 +126,7 @@ public class QuestionModel {
         }
 
     }
+
+
 
 }

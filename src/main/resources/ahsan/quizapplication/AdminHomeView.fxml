@@ -194,7 +194,17 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </TextField>
-                                          <Button fx:id="addStudentbtn" onAction="#addStudentAction" mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: #1FAA59;" text="Add Student">
+                                          <TextField fx:id="studentEmail" promptText="Email">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="studentPassword" promptText="Password">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <Button fx:id="addStudentbtn" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: #1FAA59;" text="Add Student">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" left="10.0" right="10.0" />
                                              </VBox.margin>

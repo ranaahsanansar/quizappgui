@@ -6,6 +6,7 @@ import java.util.*;
 
 import ahsan.quizapplication.Models.QuestionModel;
 import ahsan.quizapplication.Models.QuizModel;
+import ahsan.quizapplication.Models.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +26,8 @@ public class AdminHomeController  implements Initializable {
     public TableColumn rollNumberColumn;
     public TableColumn firstNameColumn;
     public TableColumn lastNameColumn;
+    public TextField studentEmail;
+    public TextField studentPassword;
     @FXML
     private TabPane adminTabPane;
     @FXML
@@ -168,20 +171,15 @@ public class AdminHomeController  implements Initializable {
 
                 questionArrayList.add(questionIndex);
 
-                System.out.println(quiz);
-
-                for (QuestionModel s : questionArrayList){
-                    System.out.println(s);
-                }
-
-
+//                for (QuestionModel s : questionArrayList){
+//                    System.out.println(s);
+//                }
 
                 question.clear();
                 opt1.clear();
                 opt2.clear();
                 opt3.clear();
                 opt4.clear();
-
 
             }catch (IndexOutOfBoundsException e){
                 System.out.println(e.getMessage());
@@ -211,12 +209,16 @@ public class AdminHomeController  implements Initializable {
             String firstName = this.firstName.getText().trim();
             String lastName = this.secondName.getText().trim();
             String rollNumber = this.rollNumber.getText().trim();
+            String studentEmail = this.studentEmail.getText().trim();
+            String studentPassword = this.studentPassword.getText().trim();
+
             String message = null;
             if(firstName.length()<3){
                 message = "Invalid First Name";
             }else if(lastName.length()<3){
                 message = "Invalid Last Name";
-            }else if(rollNumber.isEmpty() || firstName.isEmpty() || lastName.isEmpty() ){
+            }else if(rollNumber.isEmpty() || firstName.isEmpty()
+                    || lastName.isEmpty() || studentEmail.isEmpty() || studentPassword.isEmpty()){
                 message = "All fields are Required";
             }
             int rollNumberInt;
@@ -226,6 +228,19 @@ public class AdminHomeController  implements Initializable {
             if (message != null){
                 throw new RuntimeException(message);
             }
+
+            StudentModel student = new StudentModel(firstName , lastName , rollNumberInt , studentEmail , studentPassword);
+            student.insert();
+
+            Notifications notifications = Notifications.create().title("Success").text("Student Inserted!").position(Pos.TOP_RIGHT);
+            notifications.show();
+
+            this.firstName.clear();
+            this.secondName.clear();
+            this.studentEmail.clear();
+            this.studentPassword.clear();
+            this.rollNumber.clear();
+
         }catch (InputMismatchException e){
             System.out.println(e.getMessage());
             Notifications notifications = Notifications.create().title("Error").text(e.getMessage()).position(Pos.TOP_RIGHT);

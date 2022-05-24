@@ -17,3 +17,13 @@ INSERT INTO `quizzes` (`id`, `title`) VALUES (NULL, 'Ahsan');
 Insetion in Questions table
 
 INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `quiz_id`) VALUES (NULL, 'df', 'dsfd', 'dfgfd', 'dsfd', 'sdf', 'sdfd', '2');
+
+Create Students Table
+
+CREATE TABLE IF NOT EXISTS `%s` ( `%s` INT(50) NOT NULL AUTO_INCREMENT , `%s` VARCHAR(50) NOT NULL, `%s` VARCHAR(50) NOT NULL, `%s` INT(50) NOT NULL, `%s` VARCHAR(50) NOT NULL, `%s` VARCHAR(50) NOT NULL , PRIMARY KEY (`%s`))
+
+ALTER TABLE `students` ADD UNIQUE(`roll_number`)
+
+Insert in Students table
+
+INSERT INTO `students` (`id`, `first_name`, `last_name`, `roll_number`, `user_name`, `password`) VALUES (NULL, 'Ahsan', 'Ansar', '960', 'ahsan', '123456')

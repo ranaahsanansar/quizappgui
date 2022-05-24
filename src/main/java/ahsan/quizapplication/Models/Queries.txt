@@ -13,3 +13,7 @@ CREATE TABLE IF NOT EXISTS `questions` ( `id` INT(50) NOT NULL AUTO_INCREMENT , 
 Insertion in Quiz Table
 
 INSERT INTO `quizzes` (`id`, `title`) VALUES (NULL, 'Ahsan');
+
+Insetion in Questions table
+
+INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `quiz_id`) VALUES (NULL, 'df', 'dsfd', 'dfgfd', 'dsfd', 'sdf', 'sdfd', '2');

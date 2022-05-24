@@ -8,7 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuestionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuestionModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuizModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuizModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +43,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Rana Ahsan Ansar/Documents/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar",
+    "last_opened_file_path": "C:/Program Files/Java/controlsfx-8.40.11.jar",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager">

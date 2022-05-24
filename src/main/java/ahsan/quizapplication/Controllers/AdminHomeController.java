@@ -18,6 +18,13 @@ import org.controlsfx.control.Notifications;
 
 public class AdminHomeController  implements Initializable {
 
+    public TextField firstName;
+    public TextField secondName;
+    public TextField rollNumber;
+    public Button addStudentbtn;
+    public TableColumn rollNumberColumn;
+    public TableColumn firstNameColumn;
+    public TableColumn lastNameColumn;
     @FXML
     private TabPane adminTabPane;
     @FXML
@@ -58,6 +65,8 @@ public class AdminHomeController  implements Initializable {
     private ToggleGroup radioButtons;
     QuizModel quiz = new QuizModel();
 
+
+
     private String title ;
 
     private HashMap<String , String[]> questionsRecord = new HashMap<>();
@@ -75,7 +84,7 @@ public class AdminHomeController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         radioButtons();
-//        Saving Title Of the QuizModel
+        submitQuiz.setVisible(false);
 
 
     } //end of Initializ
@@ -110,6 +119,11 @@ public class AdminHomeController  implements Initializable {
     }
 
     public void addNewQuestionAction(ActionEvent actionEvent) {
+        addQuestion();
+    }
+
+    public void addQuestion(){
+        submitQuiz.setVisible(true);
         String ques = question.getText();
         String op1 = opt1.getText();
         String op2 = opt2.getText();
@@ -134,13 +148,13 @@ public class AdminHomeController  implements Initializable {
         }else {
 
             try {
-
                 QuestionModel questionIndex = new QuestionModel();
                 questionIndex.setQuestion(ques);
                 questionIndex.setOpt1(op1);
                 questionIndex.setOpt2(op2);
                 questionIndex.setOpt3(op3);
                 questionIndex.setOpt4(op4);
+                questionIndex.setQuiz(quiz);
 
                 if(selectedRadioOp == radioOpt1){
                     questionIndex.setAnswer(op1);
@@ -162,40 +176,6 @@ public class AdminHomeController  implements Initializable {
 
 
 
-//                String[] data = new String[5];
-
-//                data[0] = op1;
-//                data[1] = op2;
-//                data[2] = op3;
-//                data[3] = op4;
-//                if(selectedRadioOp == radioOpt1){
-//                    data[4] = op1;
-//                } else if (selectedRadioOp == radioOpt2) {
-//                    data[4] = op2;
-//                }else if (selectedRadioOp == radioOpt3) {
-//                    data[4] = op3;
-//                }else if (selectedRadioOp == radioOpt4) {
-//                    data[4] = op4;
-//                }
-
-//                questionsRecord.put(question.getText().trim() , data);
-//
-////                System.out.println("Question" + questionsRecord.keySet());
-//
-//                Set<String> keySet = questionsRecord.keySet();
-//                Iterator<String> itr = keySet.iterator();
-//
-//                while (itr.hasNext()){
-//                    String qu = itr.next();
-//                    String[] values = questionsRecord.get(qu);
-//
-//                    System.out.println("Question: " + qu);
-//                    for(String s: values){
-//                        System.out.println(s);
-//                    }
-//                }
-
-
                 question.clear();
                 opt1.clear();
                 opt2.clear();
@@ -213,7 +193,50 @@ public class AdminHomeController  implements Initializable {
     }
 
     public void submitQuizAction(ActionEvent actionEvent) {
-        quiz.insertQuiz();
+        addQuestion();
+        quiz.save(questionArrayList);
+        quizTitle.clear();
+        quizTitleOKbtn.setVisible(true);
+        submitQuiz.setVisible(false);
+
+    }
+
+//    ----------------------------------------------------------------
+//-------------------------------------------------------------------
+
+
+    public void addStudentAction(ActionEvent actionEvent) {
+
+        try {
+            String firstName = this.firstName.getText().trim();
+            String lastName = this.secondName.getText().trim();
+            String rollNumber = this.rollNumber.getText().trim();
+            String message = null;
+            if(firstName.length()<3){
+                message = "Invalid First Name";
+            }else if(lastName.length()<3){
+                message = "Invalid Last Name";
+            }else if(rollNumber.isEmpty() || firstName.isEmpty() || lastName.isEmpty() ){
+                message = "All fields are Required";
+            }
+            int rollNumberInt;
+
+            rollNumberInt = Integer.parseInt(rollNumber);
+
+            if (message != null){
+                throw new RuntimeException(message);
+            }
+        }catch (InputMismatchException e){
+            System.out.println(e.getMessage());
+            Notifications notifications = Notifications.create().title("Error").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
+
+        }catch (Exception e){
+            Notifications notifications = Notifications.create().title("Invalid").text("All fields must be Valid").position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }
+
+
     }
 
 

@@ -1,7 +1,6 @@
 package ahsan.quizapplication.Models;
 
-import java.sql.Connection;
-import java.sql.Statement;
+import java.sql.*;
 
 public class QuestionModel {
 
@@ -106,8 +105,8 @@ public class QuestionModel {
     }
 
     public static void crateTable(){
-        Connection conn ;
-        Statement statement;
+        Connection conn = null ;
+        Statement statement = null;
 
         String queryRaw = "CREATE TABLE IF NOT EXISTS `%s` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `%s` VARCHAR (1000) , `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), `%s` VARCHAR (500), %s INTEGER, FOREIGN KEY (%s) REFERENCES %s(%s) , PRIMARY KEY (`id`))";
 
@@ -123,10 +122,77 @@ public class QuestionModel {
 
         } catch (Exception e){
             System.out.println(e.getMessage());
+        }finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }
 
 
+    public boolean insert(){
 
+        Connection conn = null ;
+        PreparedStatement preparedStatement = null;
+
+
+        try{
+
+            String querryRaw = "INSERT INTO `%s` (`id`, `%s`, `%s`, `%s`, `%s`, `%s`, `%s`, `%s`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);";
+            String querry = String.format(querryRaw , MetaData.TABLE_NAME , MetaData.QUESTION , MetaData.OPT1 , MetaData.OPT2 , MetaData.OPT3, MetaData.OPT4 ,MetaData.ANSWER , MetaData.QUIZ_ID );
+
+            conn = CrateConnection.getConnection();
+            preparedStatement = conn.prepareStatement(querry);
+            preparedStatement.setString(1 , this.question);
+            preparedStatement.setString(2 , this.opt1);
+            preparedStatement.setString(3 , this.opt2);
+            preparedStatement.setString(4 , this.opt3);
+            preparedStatement.setString(5 , this.opt4);
+            preparedStatement.setString(6 , this.answer);
+            preparedStatement.setInt(7 , this.quiz.getQuizId());
+
+            System.out.println("Query: " + querry);
+            preparedStatement.executeUpdate();
+
+            System.out.println("Inserted");
+            return true;
+        }catch (SQLException e){
+            System.out.println("SQL : " + e.getMessage());
+            return false;
+        }catch (Exception e){
+            System.out.println("Error " + e.getMessage());
+            return false;
+        }finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
 }

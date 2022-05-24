@@ -7,6 +7,7 @@ module ahsan.quizapplication {
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens ahsan.quizapplication to javafx.fxml;
     exports ahsan.quizapplication;

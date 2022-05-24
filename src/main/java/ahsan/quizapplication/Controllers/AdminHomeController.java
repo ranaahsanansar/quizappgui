@@ -30,7 +30,7 @@ public class AdminHomeController  implements Initializable {
     @FXML
     private Tab addStudentTab;
 
-//    Admin Crete Quiz Tab
+//    Admin Crete QuizModel Tab
 
     @FXML
     private TextField quizTitle;
@@ -72,7 +72,7 @@ public class AdminHomeController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         radioButtons();
-//        Saving Title Of the Quiz
+//        Saving Title Of the QuizModel
         quizTitleOKbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -88,7 +88,20 @@ public class AdminHomeController  implements Initializable {
 
                     notifications.showError();
 //                    System.out.println("Empty Title");
-                }else {
+                } else if (!title.isEmpty()) {
+                    Notifications notification = Notifications.create();
+                    notification.text("You can not change it")
+                            .title("Field Locked")
+                            .position(Pos.TOP_LEFT)
+                            .hideAfter(Duration.seconds(2));
+                    notification.showWarning();
+                } else {
+                    Notifications notification = Notifications.create();
+                    notification.text("Title Saved now you can not change it")
+                            .title("Saved")
+                            .position(Pos.TOP_LEFT)
+                            .hideAfter(Duration.seconds(2));
+                    notification.show();
                     quizTitle.setEditable(false);
                 }
             }
@@ -116,7 +129,7 @@ public class AdminHomeController  implements Initializable {
                     Notifications notifications = Notifications.create().title("Option Error").text("Please select right answer").position(Pos.TOP_RIGHT);
                     notifications.showError();
                 }else {
-                    
+
                 }
             }
         });

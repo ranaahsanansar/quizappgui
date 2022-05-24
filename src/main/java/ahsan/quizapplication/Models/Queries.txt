@@ -1,0 +1,10 @@
+Create Quiz Table
+
+CREATE TABLE `quizappdb`.`quiz` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `quizzes` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+Create Question Table with foreign key
+
+CREATE TABLE IF NOT EXISTS `questions` ( `id` INT(50) NOT NULL AUTO_INCREMENT , `question` VARCHAR (1000) , `opt1` VARCHAR (500), `opt2` VARCHAR (500), `opt3` VARCHAR (500), `opt4` VARCHAR (500), `answer` VARCHAR (500), quiz_id INTEGER, FOREIGN KEY (quiz_id) REFERENCES quizzes(id) , PRIMARY KEY (`id`)) ;

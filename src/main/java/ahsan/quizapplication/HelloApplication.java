@@ -1,5 +1,7 @@
 package ahsan.quizapplication;
 
+import ahsan.quizapplication.Models.QuestionModel;
+import ahsan.quizapplication.Models.QuizModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +27,9 @@ public class HelloApplication extends Application {
         stage1.setScene(scene);
         stage1.setTitle("Login");
         stage1.show();
+
+        QuizModel.crateTable();
+        QuestionModel.crateTable();
 
     }
 

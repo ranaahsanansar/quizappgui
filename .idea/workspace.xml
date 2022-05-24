@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edffa937-e16a-437a-b16d-165b3da410f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/CRUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/CrateConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuestionModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuizModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Program Files/Java/controlsfx-8.40.11.jar",
+    "last_opened_file_path": "C:/Users/Rana Ahsan Ansar/Documents/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"

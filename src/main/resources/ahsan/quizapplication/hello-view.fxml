@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ahsan.quizapplication.Controllers.HelloController">
    <children>
       <HBox alignment="TOP_CENTER" layoutX="200.0" layoutY="150.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -33,7 +32,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="264.0" text="Email">
+                  <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="264.0" text="User Name">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -41,7 +40,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="adminEmail" alignment="CENTER" promptText="Enter Email">
+                  <TextField fx:id="adminEmail" alignment="CENTER" promptText="Enter User Name">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -59,7 +58,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button fx:id="adminLoginBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" text="Log In" onAction="#adminLogin">
+                  <Button fx:id="adminLoginBtn" alignment="CENTER" mnemonicParsing="false" onAction="#adminLogin" prefHeight="30.0" prefWidth="155.0" text="Log In">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -84,7 +83,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="264.0" text="Email">
+                  <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="264.0" text="User Name">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -92,7 +91,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="stuEmail" alignment="CENTER" prefHeight="30.0" prefWidth="275.0" promptText="Enter Email">
+                  <TextField fx:id="stuEmail" alignment="CENTER" prefHeight="30.0" prefWidth="275.0" promptText="Enter User Name">
                      <VBox.margin>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
@@ -110,7 +109,7 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button fx:id="stuLoginBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" text="Log In" onAction="#stuLogin">
+                  <Button fx:id="stuLoginBtn" alignment="CENTER" mnemonicParsing="false" onAction="#stuLogin" prefHeight="30.0" prefWidth="155.0" text="Log In">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>

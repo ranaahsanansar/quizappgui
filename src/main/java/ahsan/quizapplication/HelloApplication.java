@@ -23,11 +23,13 @@ public class HelloApplication extends Application {
 //        stage.show();
 
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+
         Stage stage1 = new Stage();
         Scene scene = new Scene(root);
         stage1.setScene(scene);
         stage1.setTitle("Login");
         stage1.show();
+        stage1.setResizable(false);
 
         QuizModel.crateTable();
         QuestionModel.crateTable();

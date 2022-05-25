@@ -7,8 +7,13 @@
     <list default="true" id="edffa937-e16a-437a-b16d-165b3da410f8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/AdminHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/StudentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/StudentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/AdminHomeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,5 +93,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalAccessException" package="java.lang" />
+          <option name="timeStamp" value="8" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

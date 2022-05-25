@@ -3,7 +3,7 @@ module ahsan.quizapplication {
 //
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires javafx.base;
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires validatorfx;

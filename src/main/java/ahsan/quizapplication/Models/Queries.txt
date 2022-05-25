@@ -27,3 +27,11 @@ ALTER TABLE `students` ADD UNIQUE(`roll_number`)
 Insert in Students table
 
 INSERT INTO `students` (`id`, `first_name`, `last_name`, `roll_number`, `user_name`, `password`) VALUES (NULL, 'Ahsan', 'Ansar', '960', 'ahsan', '123456')
+
+
+Sudent log in retrive Student
+
+SELECT * FROM `students` WHERE `user_name` LIKE 'sdf' AND `password` LIKE 'sdf'
+
+
+

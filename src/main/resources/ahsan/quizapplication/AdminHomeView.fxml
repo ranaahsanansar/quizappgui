@@ -267,11 +267,13 @@
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <TableView layoutX="141.0" layoutY="47.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="studentTable" layoutX="141.0" layoutY="47.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn fx:id="rollNumberColumn" prefWidth="160.0" text="Roll Number" />
-                                        <TableColumn fx:id="firstNameColumn" prefWidth="151.0" text="First Name" />
-                                          <TableColumn fx:id="lastNameColumn" prefWidth="191.0" text="Last Name" />
+                                        <TableColumn fx:id="rollNumberColumn" prefWidth="101.0" text="Roll Number" />
+                                        <TableColumn fx:id="firstNameColumn" prefWidth="87.0" text="First Name" />
+                                          <TableColumn fx:id="lastNameColumn" prefWidth="91.0" text="Last Name" />
+                                          <TableColumn fx:id="userNameColumn" prefWidth="91.0" text="User Name" />
+                                          <TableColumn fx:id="passwordColumn" prefWidth="128.0" text="Password" />
                                       </columns>
                                     </TableView>
                                  </children>

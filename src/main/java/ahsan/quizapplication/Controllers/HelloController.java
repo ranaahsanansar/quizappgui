@@ -7,10 +7,12 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import ahsan.quizapplication.HelloApplication;
+import ahsan.quizapplication.Models.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 
 /**
  *
@@ -68,13 +71,16 @@ public class HelloController implements Initializable {
 
 
         }else{
-            System.out.println("Incorret");
+            Notifications notifications = Notifications.create().title("Failed").text("Incorrect field").position(Pos.TOP_RIGHT);
+            notifications.showError();
         }
     }
 
     @FXML
     private void stuLogin(ActionEvent event) {
+        StudentModel authStudent = new StudentModel(this.stuEmail.getText().trim() , this.stuPassword.getText().trim());
 
+        System.out.println(authStudent.login());
     }
 
 }

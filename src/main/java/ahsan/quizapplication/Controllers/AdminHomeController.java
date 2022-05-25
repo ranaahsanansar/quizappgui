@@ -7,11 +7,14 @@ import java.util.*;
 import ahsan.quizapplication.Models.QuestionModel;
 import ahsan.quizapplication.Models.QuizModel;
 import ahsan.quizapplication.Models.StudentModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 //-------------------
@@ -23,11 +26,20 @@ public class AdminHomeController  implements Initializable {
     public TextField secondName;
     public TextField rollNumber;
     public Button addStudentbtn;
-    public TableColumn rollNumberColumn;
-    public TableColumn firstNameColumn;
-    public TableColumn lastNameColumn;
     public TextField studentEmail;
     public TextField studentPassword;
+    @FXML
+    private TableView<StudentModel> studentTable;
+    @FXML
+    private TableColumn<StudentModel , Integer> rollNumberColumn;
+    @FXML
+    private TableColumn<StudentModel , String> firstNameColumn;
+    @FXML
+    private TableColumn<StudentModel , String> lastNameColumn;
+    @FXML
+    private TableColumn<StudentModel , String> userNameColumn;
+    @FXML
+    private TableColumn<StudentModel , String> passwordColumn;
     @FXML
     private TabPane adminTabPane;
     @FXML
@@ -88,7 +100,7 @@ public class AdminHomeController  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         radioButtons();
         submitQuiz.setVisible(false);
-
+        showStudentTable();
 
     } //end of Initializ
 
@@ -201,6 +213,23 @@ public class AdminHomeController  implements Initializable {
 
 //    ----------------------------------------------------------------
 //-------------------------------------------------------------------
+
+    public void showStudentTable(){
+//        List<StudentModel> studentsList = StudentModel.getAll();
+//        ObservableList<StudentModel> observableList = FXCollections.observableList(studentsList);
+//
+//        studentTable.getItems().clear();
+////        Setting for Showing Table
+//        studentTable.getItems().addAll(studentsList);
+        this.firstNameColumn.setCellValueFactory(new PropertyValueFactory<StudentModel , String>("firstName"));
+        this.lastNameColumn.setCellValueFactory(new PropertyValueFactory<StudentModel , String>("lastName"));
+        this.rollNumberColumn.setCellValueFactory(new PropertyValueFactory<StudentModel , Integer>("rollNumber"));
+        this.userNameColumn.setCellValueFactory(new PropertyValueFactory<StudentModel , String>("studentEmail"));
+        this.passwordColumn.setCellValueFactory(new PropertyValueFactory<StudentModel , String>("studentPassword"));
+
+
+//        this.studentTable.setItems(observableList);
+    }
 
 
     public void addStudentAction(ActionEvent actionEvent) {

@@ -1,5 +1,7 @@
 package ahsan.quizapplication.Models;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
 import org.controlsfx.control.Notifications;
 
@@ -10,13 +12,17 @@ public class StudentModel {
     private Integer id;
     private String firstName;
     private String lastName;
-    private int rollNumber;
+    private Integer rollNumber;
     private String studentEmail;
-
-    private String studentPassword;
+    public String studentPassword;
 
     public StudentModel(){
 
+    }
+
+    public StudentModel(String userName , String password){
+        this.studentEmail = userName;
+        this.studentPassword = password;
     }
     public StudentModel(String firstName, String lastName, int rollNumber, String studentEmail, String studentPassword) {
         this.firstName = firstName;
@@ -24,6 +30,7 @@ public class StudentModel {
         this.rollNumber = rollNumber;
         this.studentEmail = studentEmail;
         this.studentPassword = studentPassword;
+
     }
 
     public static class MetaData{
@@ -120,7 +127,7 @@ public class StudentModel {
 
     }
 
-    public ArrayList<StudentModel> getAll(){
+    public static ArrayList<StudentModel> getAll(){
         ArrayList<StudentModel> studentsGetFromDataBase = new ArrayList<>();
         try{
             Connection conn = null ;
@@ -129,15 +136,15 @@ public class StudentModel {
 
             conn = CrateConnection.getConnection();
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM `questions`");
+            resultSet = statement.executeQuery("SELECT * FROM `students`");
 
             while (resultSet.next()){
                 StudentModel s = new StudentModel();
                 s.setFirstName(resultSet.getString(MetaData.FIRST_NAME)) ;
-                s.setLastName(resultSet.getString(MetaData.LAST_NAME)); ;
-                s.setRollNumber(resultSet.getInt(MetaData.ROLL_NUMBER)); ;
-                s.setStudentEmail(resultSet.getString(MetaData.USER_NAME)); ;
-                s.setStudentPassword(resultSet.getString(MetaData.PASSWORD)); ;
+                s.setLastName(resultSet.getString(MetaData.LAST_NAME));
+                s.setRollNumber(resultSet.getInt(MetaData.ROLL_NUMBER));
+                s.setStudentEmail(resultSet.getString(MetaData.USER_NAME));
+                s.setStudentPassword(resultSet.getString(MetaData.PASSWORD));
 
                 studentsGetFromDataBase.add(s);
                 System.out.println(s);
@@ -190,6 +197,69 @@ public class StudentModel {
             Notifications notifications = Notifications.create().title("Success").text("Error /n" + e.getMessage()).position(Pos.TOP_RIGHT);
             notifications.showError();
 
+        }finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    public boolean login(){
+        Connection conn = null ;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try{
+
+            String querryRaw = "SELECT * FROM `students` WHERE `user_name` LIKE ? AND `password` LIKE ?";
+            String querry = String.format(querryRaw , MetaData.TABLE_NAME , MetaData.USER_NAME , MetaData.PASSWORD);
+
+            conn = CrateConnection.getConnection();
+            preparedStatement = conn.prepareStatement(querry , Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1 , this.studentEmail);
+            preparedStatement.setString(2 , this.studentPassword);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                this.setFirstName(resultSet.getString("first_name"));
+                this.setLastName(resultSet.getString("last_name"));
+                this.setRollNumber(resultSet.getInt("roll_number"));
+                this.setId(resultSet.getInt("id"));
+                Notifications notifications = Notifications.create().title("Success").text("Login as Student").position(Pos.TOP_RIGHT);
+                notifications.show();
+                return true;
+            }else {
+                Notifications notifications = Notifications.create().title("Failed").text("Incorrect field").position(Pos.TOP_RIGHT);
+                notifications.showError();
+                return false;
+            }
+
+
+        }catch (SQLException e){
+            System.out.println("SQL : " + e.getMessage());
+            Notifications notifications = Notifications.create().title("Failed").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
+            return false;
+
+        }catch (Exception e){
+            System.out.println("Error " + e.getMessage());
+            Notifications notifications = Notifications.create().title("Success").text("Error /n" + e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
+            return false;
         }finally {
             if (preparedStatement != null) {
                 try {

@@ -179,26 +179,51 @@
                                              </VBox.margin>
                                           </Label>
                                           <Separator prefHeight="10.0" prefWidth="217.0" />
+                                          <Label text="First Name">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
                                           <TextField fx:id="firstName" promptText="First Name">
                                              <VBox.margin>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </TextField>
+                                          <Label text="Last Name">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
                                           <TextField fx:id="secondName" promptText="Last Name">
                                              <VBox.margin>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </TextField>
+                                          <Label text="Roll Number">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
                                           <TextField fx:id="rollNumber" promptText="Roll Number">
                                              <VBox.margin>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </TextField>
-                                          <TextField fx:id="studentEmail" promptText="Email">
+                                          <Label text="User Name">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="studentEmail" promptText="User Name">
                                              <VBox.margin>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </TextField>
+                                          <Label text="Password">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Label>
                                           <TextField fx:id="studentPassword" promptText="Password">
                                              <VBox.margin>
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -214,7 +239,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </Separator>
-                                          <Label alignment="CENTER" prefHeight="20.0" prefWidth="218.0" text="Rana Ahsan Ansar">
+                                          <Label alignment="CENTER" prefHeight="32.0" prefWidth="227.0" text="Rana Ahsan Ansar" textFill="#eb0505">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" top="20.0" />
                                              </VBox.margin>
@@ -225,18 +250,7 @@
                                                 <Font size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="20.0" prefWidth="218.0" text="70077960">
-                                             <padding>
-                                                <Insets left="10.0" />
-                                             </padding>
-                                             <font>
-                                                <Font size="22.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="20.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="20.0" prefWidth="218.0" text="Java Project">
+                                          <Label alignment="CENTER" prefHeight="32.0" prefWidth="250.0" text="Java Project" textFill="#eb0505">
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>

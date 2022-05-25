@@ -232,9 +232,6 @@ public class AdminHomeController  implements Initializable {
             StudentModel student = new StudentModel(firstName , lastName , rollNumberInt , studentEmail , studentPassword);
             student.insert();
 
-            Notifications notifications = Notifications.create().title("Success").text("Student Inserted!").position(Pos.TOP_RIGHT);
-            notifications.show();
-
             this.firstName.clear();
             this.secondName.clear();
             this.studentEmail.clear();
@@ -248,7 +245,9 @@ public class AdminHomeController  implements Initializable {
 
         }catch (Exception e){
             Notifications notifications = Notifications.create().title("Invalid").text("All fields must be Valid").position(Pos.TOP_RIGHT);
-            notifications.showError();
+            notifications.showWarning();
+            notifications = Notifications.create().title("Invalid").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showWarning();
         }
 
 

@@ -1,6 +1,10 @@
 package ahsan.quizapplication.Models;
 
+import javafx.geometry.Pos;
+import org.controlsfx.control.Notifications;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class StudentModel {
     private Integer id;
@@ -116,6 +120,38 @@ public class StudentModel {
 
     }
 
+    public ArrayList<StudentModel> getAll(){
+        ArrayList<StudentModel> studentsGetFromDataBase = new ArrayList<>();
+        try{
+            Connection conn = null ;
+            Statement statement = null;
+            ResultSet resultSet = null;
+
+            conn = CrateConnection.getConnection();
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM `questions`");
+
+            while (resultSet.next()){
+                StudentModel s = new StudentModel();
+                s.setFirstName(resultSet.getString(MetaData.FIRST_NAME)) ;
+                s.setLastName(resultSet.getString(MetaData.LAST_NAME)); ;
+                s.setRollNumber(resultSet.getInt(MetaData.ROLL_NUMBER)); ;
+                s.setStudentEmail(resultSet.getString(MetaData.USER_NAME)); ;
+                s.setStudentPassword(resultSet.getString(MetaData.PASSWORD)); ;
+
+                studentsGetFromDataBase.add(s);
+                System.out.println(s);
+            }
+
+        }catch (SQLException e){
+            Notifications notifications = Notifications.create().title("Error").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }catch (Exception e){
+            Notifications notifications = Notifications.create().title("Error").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
+        }
+        return studentsGetFromDataBase;
+    }
 
     public void insert(){
         Connection conn = null ;
@@ -128,7 +164,7 @@ public class StudentModel {
             String querry = String.format(querryRaw , MetaData.TABLE_NAME , MetaData.ID , MetaData.FIRST_NAME , MetaData.LAST_NAME , MetaData.ROLL_NUMBER , MetaData.USER_NAME , MetaData.PASSWORD);
 
             conn = CrateConnection.getConnection();
-            preparedStatement = conn.prepareStatement(querry);
+            preparedStatement = conn.prepareStatement(querry , Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1 , firstName);
             preparedStatement.setString(2 , lastName);
             preparedStatement.setInt(3 , rollNumber);
@@ -137,12 +173,22 @@ public class StudentModel {
             System.out.println("Query: " + querry);
             int i = preparedStatement.executeUpdate();
 
-            System.out.println("Inserted");
+            ResultSet key = preparedStatement.getGeneratedKeys();
+            if(key.next()) {
+                this.id = key.getInt(1);
+            }
+
+            Notifications notifications = Notifications.create().title("Success").text("Student Registered!").position(Pos.TOP_RIGHT);
+            notifications.show();
         }catch (SQLException e){
             System.out.println("SQL : " + e.getMessage());
+            Notifications notifications = Notifications.create().title("Failed").text(e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
 
         }catch (Exception e){
             System.out.println("Error " + e.getMessage());
+            Notifications notifications = Notifications.create().title("Success").text("Error /n" + e.getMessage()).position(Pos.TOP_RIGHT);
+            notifications.showError();
 
         }finally {
             if (preparedStatement != null) {

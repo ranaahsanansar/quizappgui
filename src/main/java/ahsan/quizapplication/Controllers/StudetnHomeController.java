@@ -1,6 +1,7 @@
 package ahsan.quizapplication.Controllers;
 
 import ahsan.quizapplication.HelloApplication;
+import ahsan.quizapplication.Models.QuizModel;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -21,6 +22,9 @@ public class StudetnHomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
             Node node = fxmlLoader.load();
@@ -31,126 +35,5 @@ public class StudetnHomeController implements Initializable {
 
         }
 
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuizCardLayout.fxml"));
-            Node node = fxmlLoader.load();
-
-            this.flowPane.getChildren().add(node);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-
-        }
     }
 }

@@ -86,10 +86,6 @@ public class HelloController implements Initializable {
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) adminLoginBtn.getScene().getWindow(); // Jo Window Open hogi usi ka Stage mill jaye ga
                 stage.close();
-//                stage.setTitle("Student Panel");
-//                stage.setScene(scene);
-////                stage.setFullScreen(true);
-//                stage.setMaximized(true);
                 Stage studentStage = new Stage();
                 studentStage.setTitle("Student Panel");
                 studentStage.setScene(scene);

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edffa937-e16a-437a-b16d-165b3da410f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/StudentHomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/StudetnHomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/StudetnHomeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/StudentHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/StudentHomeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/StudentHomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/StudentHomeView.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

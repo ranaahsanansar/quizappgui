@@ -2,14 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 
 
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ahsan.quizapplication.Controllers.StudetnHomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ahsan.quizapplication.Controllers.StudetnHomeController">
    <children>
-      <FlowPane layoutX="227.0" layoutY="54.0" prefHeight="43.0" prefWidth="600.0" AnchorPane.bottomAnchor="357.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <FlowPane layoutX="227.0" layoutY="54.0" prefHeight="43.0" prefWidth="75.0" rowValignment="TOP" AnchorPane.bottomAnchor="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="backbtn" mnemonicParsing="false" text="Back">
                <FlowPane.margin>
@@ -22,10 +23,18 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <FlowPane fx:id="flowPane" layoutX="148.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <FlowPane fx:id="flowPane" hgap="5.0" prefHeight="200.0" prefWidth="200.0" vgap="5.0">
+                           <padding>
+                              <Insets left="10.0" top="10.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
          </children>
       </StackPane>
    </children>
-</fx:root>
+</AnchorPane>

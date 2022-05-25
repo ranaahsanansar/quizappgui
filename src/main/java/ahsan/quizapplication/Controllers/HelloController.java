@@ -82,7 +82,7 @@ public class HelloController implements Initializable {
 
         if(authStudent.login()){
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StudentHomeView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StudetnHomeView.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = (Stage) adminLoginBtn.getScene().getWindow(); // Jo Window Open hogi usi ka Stage mill jaye ga
                 stage.close();

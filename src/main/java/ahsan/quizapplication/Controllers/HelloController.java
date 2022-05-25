@@ -80,7 +80,26 @@ public class HelloController implements Initializable {
     private void stuLogin(ActionEvent event) {
         StudentModel authStudent = new StudentModel(this.stuEmail.getText().trim() , this.stuPassword.getText().trim());
 
-        System.out.println(authStudent.login());
+        if(authStudent.login()){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("StudentHomeView.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = (Stage) adminLoginBtn.getScene().getWindow(); // Jo Window Open hogi usi ka Stage mill jaye ga
+                stage.close();
+//                stage.setTitle("Student Panel");
+//                stage.setScene(scene);
+////                stage.setFullScreen(true);
+//                stage.setMaximized(true);
+                Stage studentStage = new Stage();
+                studentStage.setTitle("Student Panel");
+                studentStage.setScene(scene);
+                studentStage.show();
+
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+
+            }
+        }
     }
 
 }

@@ -14,13 +14,30 @@ public class QuizCardLayoutController implements Initializable {
     public Label noQ;
     public Button attemptQ;
 
-    @FXML
-    private void attemptQuiz(ActionEvent event){
 
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public void setNoQ(String value) {
+        this.noQ.setText(value);
+    }
+
+    public void setQuizTitle(String value) {
+        this.quizTitle.setText(value);
+    }
+
+    public void setAttemptQ(Button attemptQ) {
+        this.attemptQ = attemptQ;
+    }
+
+
+
+    @FXML
+    private void attemptQuiz(ActionEvent event){
+
+    }
+
 }

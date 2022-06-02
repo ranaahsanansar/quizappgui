@@ -39,6 +39,6 @@ Get Quizes Title and Number of Questions
 
 SELECT title , quizzes.id FROM quizzes INNER JOIN questions ON quizzes.id = questions.id;
 
-SELECT title , quizzes.id , COUNT(*) AS questios_count FROM quizzes INNER JOIN questions ON quizzes.id = questions.id GROUP BY quizzes.id;
+SELECT title , quizzes.id , COUNT(*) AS questios_count FROM quizzes INNER JOIN questions ON quizzes.id = questions.quiz_id GROUP BY quizzes.id;
 
 

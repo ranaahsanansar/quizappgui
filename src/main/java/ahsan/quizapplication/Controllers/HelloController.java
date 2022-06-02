@@ -62,7 +62,8 @@ public class HelloController implements Initializable {
                 stage.setTitle("Admin Panel");
                 stage.setScene(scene);
 //                stage.setFullScreen(true);
-                stage.setMaximized(true);
+//                stage.setMaximized(true);
+                stage.setResizable(true);
 
             }catch (IOException e){
                 System.out.println(e.getMessage());

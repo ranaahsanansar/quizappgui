@@ -198,36 +198,5 @@ public class QuestionModel {
 
     }
 
-    public static Map<QuizModel , Integer> questionCount(){
-        Map<QuizModel, Integer> quizes  = new HashMap<>();
-        QuestionModel key = null;
-        Connection conn = null;
-        PreparedStatement preparedStatement = null ;
-        ResultSet resultSet = null ;
-        try{
 
-
-        String queryRaw = "SELECT %s , %s.%s , COUNT(*) AS questios_count FROM %s INNER JOIN %s ON %s.%s = %s.id GROUP BY %s.%s";
-        String query = String.format(queryRaw , QuizModel.MetaData.QUIZ_TITLE , QuizModel.MetaData.TABLE_NAME , QuizModel.MetaData.QUIZ_ID , QuizModel.MetaData.TABLE_NAME , MetaData.TABLE_NAME , QuizModel.MetaData.TABLE_NAME , QuizModel.MetaData.QUIZ_ID , MetaData.TABLE_NAME , QuizModel.MetaData.TABLE_NAME , QuizModel.MetaData.QUIZ_ID);
-
-        conn = CrateConnection.getConnection();
-        preparedStatement = conn.prepareStatement(query);
-        resultSet = preparedStatement.executeQuery();
-
-        while (resultSet.next()){
-            QuizModel temp = new QuizModel();
-            temp.setQuizId(resultSet.getInt(QuizModel.MetaData.QUIZ_ID));
-            temp.setTitle(resultSet.getString(QuizModel.MetaData.QUIZ_TITLE));
-            int count = resultSet.getInt("question_count");
-            quizes.put(temp , count);
-
-        }
-
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return quizes;
-    }
 }

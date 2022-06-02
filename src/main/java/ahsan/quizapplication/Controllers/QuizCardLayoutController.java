@@ -2,7 +2,10 @@ package ahsan.quizapplication.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -37,6 +40,15 @@ public class QuizCardLayoutController implements Initializable {
 
     @FXML
     private void attemptQuiz(ActionEvent event){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("QuizView.fxml"));
+
+        try {
+            Scene scene = new Scene(fxmlLoader.load());
+
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+
 
     }
 

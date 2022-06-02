@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edffa937-e16a-437a-b16d-165b3da410f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/QuizViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/QuizView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/QuizCardLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/QuizCardLayoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/StudetnHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/StudetnHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/Queries.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuestionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuestionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuizModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Models/QuizModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/QuizViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ahsan/quizapplication/Controllers/QuizViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/QuizView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ahsan/quizapplication/QuizView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
